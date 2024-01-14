@@ -1,0 +1,76 @@
+#Q3 lab01b
+import math
+
+def calculate_S1(a, b, c, x):
+    return a * x**2 + b * x + c
+
+def calculate_S2(a, b, c):
+    discriminant = b**2 - 4 * a * c
+    if discriminant > 0:
+        return a * c * b**2 - 4
+    else:
+        return 0
+
+def is_triangle(a, b, c):
+    return a + b > c and b + c > a and c + a > b
+
+def calculate_triangle_perimeter(a, b, c):
+    return a + b + c
+
+def calculate_triangle_area(a, b, c):
+    p = (a + b + c) / 2
+    return math.sqrt(p * (p - a) * (p - b) * (p - c))
+
+# Task 1: Input 4 real numbers a, b, c, and x
+a = float(input("Enter the value of a: "))
+b = float(input("Enter the value of b: "))
+c = float(input("Enter the value of c: "))
+x = float(input("Enter the value of x: "))
+
+# Task 2: Calculate S1 = ax^2 + bx + c
+S1 = calculate_S1(a, b, c, x)
+print(f"S1 = {S1}")
+
+# Task 3
+S2 = calculate_S2(a, b, c)
+print(f"S2 = {S2}")
+
+# Task 4
+a = float(input("Enter the new value of a: "))
+b = float(input("Enter the new value of b: "))
+c = float(input("Enter the new value of c: "))
+
+if is_triangle(a, b, c):
+    # Task 5
+    perimeter = calculate_triangle_perimeter(a, b, c)
+    area = calculate_triangle_area(a, b, c)
+    print(f"These are sides of a triangle. Perimeter: {perimeter}, Area: {area}")
+else:
+    print("a, b, c are not sides of a triangle.")
+
+#Q4 
+# Function to find the maximum and minimum among three numbers
+def find_max_min(a, b, c):
+    maximum = max(a, b, c)
+    minimum = min(a, b, c)
+    return maximum, minimum
+
+# Function to arrange three numbers in ascending order
+def arrange_in_ascending_order(a, b, c):
+    sorted_numbers = [a, b, c]
+    sorted_numbers.sort()
+    return sorted_numbers
+
+# Input three real numbers
+a = float(input("Enter the value of a: "))
+b = float(input("Enter the value of b: "))
+c = float(input("Enter the value of c: "))
+
+# Task 1: Display the maximum and minimum values
+max_value, min_value = find_max_min(a, b, c)
+print(f"Maximum value: {max_value}")
+print(f"Minimum value: {min_value}")
+
+# Task 2: Arrange the numbers in ascending order
+sorted_numbers = arrange_in_ascending_order(a, b, c)
+print("Numbers in ascending order:", sorted_numbers)
